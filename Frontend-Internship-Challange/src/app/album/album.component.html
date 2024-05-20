@@ -1,1 +1,35 @@
-<p>album works!</p>
+<div class="row text-center g-0">
+    <div class="col-md-8 p-5 m-5 border rounded shadow">
+        <div class="d-flex justify-content-left">
+            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/92/9f/69/929f69f1-9977-3a44-d674-11f70c852d1b/24UMGIM36186.rgb.jpg/170x170bb.png" [alt]="title" class="border rounded p-3 m-3 shadow" [width]="width" height="auto">
+            <div class="d-block text-start">
+                <h2 class="display-3">
+                    {{ title }}
+                </h2>
+                <h4>
+                    Price: {{ price }} {{ currency }}
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- after fetching data from api i need to have feed.entry (array of albums) -->
+<!-- there is 
+    im:name.label // title
+    id.label // link to music
+    im:releaseDate.attributes.label 
+    im:price.attributes.amount
+    im:price.attributes.currency
+    im:image[3]
+    im:artist.label
+    id.attributes.im:id
+    category.attributes.term // category of music
+
+
+
+
+-->
