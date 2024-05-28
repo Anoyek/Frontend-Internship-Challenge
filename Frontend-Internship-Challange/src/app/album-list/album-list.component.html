@@ -1,0 +1,14 @@
+@for
+(album of albumList; track album.source) {
+    <app-album 
+    [album]="album"
+    />
+}
+@empty
+{
+  Empty list of users
+}
+
+
+<!-- *ngFor="let item of items" -->
+<!-- [album]="item" -->

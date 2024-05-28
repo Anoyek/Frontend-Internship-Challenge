@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-album',
@@ -8,9 +8,18 @@ import { Component } from '@angular/core';
   styleUrl: './album.component.css'
 })
 export class AlbumComponent {
-  width: number = 170;
-  height: number = 170;
-  title: string = 'Album title';
-  price: number = 10;
-  currency: string = '$';
+  @Input() album: any
+
+
+
+
+  // {
+  //   title:string,
+  //   author:string,
+  //   source:string,
+  //   imgSource:string,
+  //   price: string,
+  //   currency:string,
+  //   width: string;
+  // };
 }
