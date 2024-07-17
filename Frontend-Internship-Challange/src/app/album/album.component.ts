@@ -9,17 +9,4 @@ import { Component, Input } from '@angular/core';
 })
 export class AlbumComponent {
   @Input() album: any
-
-
-
-
-  // {
-  //   title:string,
-  //   author:string,
-  //   source:string,
-  //   imgSource:string,
-  //   price: string,
-  //   currency:string,
-  //   width: string;
-  // };
 }

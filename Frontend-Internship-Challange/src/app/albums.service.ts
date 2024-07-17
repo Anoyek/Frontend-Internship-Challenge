@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { Album } from './album'
 
 
@@ -13,7 +13,16 @@ export class AlbumsService {
 
   constructor(private http: HttpClient) { }
 
-  getAlbums(): Observable<Album[]>{
-    return this.http.get<Album[]>(`${this.url}`);
+  getAlbums(): Observable<any>{
+    return this.http.get(`${this.url}`)
+    .pipe(
+      map ((resData) => resData),
+      catchError((e) =>{
+        console.log(e);
+        return throwError(
+          () => new Error('something went wrong')
+        );
+      })
+    );
   }
 }
