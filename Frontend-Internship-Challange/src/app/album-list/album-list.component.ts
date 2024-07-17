@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { HTTPService } from '../http.service'
+import { HttpClientModule } from '@angular/common/http';
+
+import { AlbumsService } from '../albums.service'
 import { Album } from '../album';
 import { AlbumComponent } from '../album/album.component';
 
 @Component({
   selector: 'app-album-list',
   standalone: true,
-  imports: [AlbumComponent],
+  imports: [AlbumComponent, HttpClientModule],
   templateUrl: './album-list.component.html',
   styleUrl: './album-list.component.css'
 })
 export class AlbumListComponent implements OnInit{
   albumList: Album[] = [];
 
-  constructor(private http: HTTPService) {}
+  constructor(private http: AlbumsService) {}
 
   ngOnInit(): void {
     this.http.getAlbums().subscribe((album) =>{

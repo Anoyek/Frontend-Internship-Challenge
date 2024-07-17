@@ -8,7 +8,7 @@ import { Album } from './album'
   providedIn: 'root'
 })
 
-export class HTTPService {
+export class AlbumsService {
   private url:string = 'https://itunes.apple.com/us/rss/topalbums/limit=100/json';
 
   constructor(private http: HttpClient) { }
