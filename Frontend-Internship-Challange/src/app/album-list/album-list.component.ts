@@ -1,8 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Input } from '@angular/core';
 
 import { AlbumsService } from '../albums.service'
 import { Album } from '../album';
 import { AlbumComponent } from '../album/album.component';
+
+import { Subscription } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-album-list',
@@ -12,41 +15,66 @@ import { AlbumComponent } from '../album/album.component';
   styleUrl: './album-list.component.css'
 })
 export class AlbumListComponent implements OnInit{
+  @Input() set lookForIt(searchbarValue: string){
+    if(this.filtredAlbumList.length > 0 && this.albums.length > 0){
+      console.log(this.filtredAlbumList)
+      this.filtredAlbumList = this.albums.filter((singleAlbum)=>{
+        singleAlbum.title.toLocaleLowerCase().indexOf(searchbarValue.toLocaleLowerCase()) >= 0
+      })
+    }
+    console.log(this.filtredAlbumList)
+  }
   private AlbumsService = inject(AlbumsService);
-  object: any;
-  albumList: Album[] = []
-  array = [];
+  subscription: any;
   constructor(private http: AlbumsService) {}
+  // albumList: Album[] = this.albums.filter((singleAlbum)=>{
+  //   // if(this.lookForIt){
+  //     singleAlbum.title.includes(this.lookForIt) || singleAlbum.author.includes(this.lookForIt);
+  //   // }else{
+  //   //   this.albumList = this.albums;
+  //   // }
+  // });
+  albumList: Album[] = [];
+  albums: Album[] = [];
+  filtredAlbumList: any = [];
+
 
   ngOnInit() {
-    const subscription =
+    this.subscription =
       this.AlbumsService.getAlbums().subscribe({
         next: (res)=>{
-          this.array = res.feed.entry
-          this.array.forEach((element) => {
-            this.object = 
-            {
-              title: element['im:name']['label'],
-              author: element['im:artist']['label'],
-              source: element['id']['label'],
-              imgSource: element['im:image'][2]['label'],
-              price: element['im:price']['attributes']['amount'],
-              currency: element['im:price']['attributes']['currency']
-            };
-            this.albumList.push(this.object)
-          });
+          this.albums = res.feed.entry
+          .map((element: any) => ({
+            title: element['im:name']['label'],
+            author: element['im:artist']['label'],
+            source: element['id']['label'],
+            imgSource: element['im:image'][2]['label'],
+            price: element['im:price']['attributes']['amount'],
+            currency: element['im:price']['attributes']['currency'],
+            id: element.id.attributes['im:id'],
+            category: element.category.attributes.label,
+            releaseDate: element['im:releaseDate'].attributes.label
+          }))
+          this.filtredAlbumList = this.albums
+        //   this.array.forEach((element) => {
+        //     this.object = 
+        //     {
+        //       title: element['im:name']['label'],
+        //       author: element['im:artist']['label'],
+        //       source: element['id']['label'],
+        //       imgSource: element['im:image'][2]['label'],
+        //       price: element['im:price']['attributes']['amount'],
+        //       currency: element['im:price']['attributes']['currency']
+        //     };
+        //     this.albumList.push(this.object)
+        //   });
         } 
       })
   }
-  // albumList = [
-  //   {
-  //     title: 'title',
-  //     author: 'author',
-  //     source: 'https://music.apple.com/us/album/hit-me-hard-and-soft/1739659134?uo=2',
-  //     imgSource: 'https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/92/9f/69/929f69f1-9977-3a44-d674-11f70c852d1b/24UMGIM36186.rgb.jpg/170x170bb.png',
-  //     price: '10',
-  //     currency: '$',
-  //     width: 170
-  //   }
-  // ];
+  ngOnDestroy(){
+    this.subscription.unsubscribe()
+  }
 }
+// this.albumList = this.albums.filter( singleAlbum => {
+//   singleAlbum.title.includes(this.lookForIt) || singleAlbum.author.includes(this.lookForIt);
+// });

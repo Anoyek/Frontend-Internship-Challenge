@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-// import { RouterOutlet } from '@angular/router';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { AlbumComponent } from './album/album.component';
 import { AlbumListComponent } from './album-list/album-list.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, AlbumComponent, AlbumListComponent],
+  imports: [NavbarComponent, AlbumComponent, AlbumListComponent, SearchbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

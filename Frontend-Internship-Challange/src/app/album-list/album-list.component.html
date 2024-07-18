@@ -1,10 +1,10 @@
 @for
-(album of albumList; track album.source) {
+(album of filtredAlbumList; track album.source) {
     <app-album 
     [album]="album"
     />
 }
 @empty
 {
-  Empty list of users
+  Something went wrong!
 }
