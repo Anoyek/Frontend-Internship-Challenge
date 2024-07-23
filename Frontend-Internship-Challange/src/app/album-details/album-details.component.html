@@ -1,1 +1,15 @@
-<button mat-button (click)="openDialog()">Open dialog</button>
+<h2 mat-dialog-title> {{ data.title }} </h2>
+<mat-dialog-content>
+  <ul>
+    <li>Author: {{ data.author }}</li>
+    <li>Category: {{ data.category }}</li>
+    <li>Price: {{ data.price }} {{ data.currency }}</li>
+    <li>Release Date:{{ data.releaseDate }}</li>
+  </ul>
+  <div class="d-flex justify-content-end pointer">
+      <mat-icon class="p-3 m-3" (click)="dialogRef.close()" fontIcon="exit_to_app"></mat-icon>
+    <a href="{{ data.source }}" target="_blank" class="text-decoration-none">
+      <mat-icon fontIcon="shop" class="p-3 m-3"></mat-icon>
+    </a>
+  </div>
+</mat-dialog-content>

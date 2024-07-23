@@ -1,25 +1,36 @@
 <div class="d-flex row justify-content-evenly text-center g-0">
-    <div class="col-md-6 p-5 m-5 border rounded shadow">          
-        <a href="{{ album.source }}" target="_blank" class="link-underline link-underline-opacity-0 text-dark">
-            <div class="d-flex justify-content-left">
-                <div class="d-flex align-items-center">
-                    <img src="{{ album.imgSource }}" [alt]="album.title" class="border rounded p-3 m-3 shadow align-items-center" width="170px" height="170px">
-                </div>
-                <div class="d-inline-block text-start m-5">
-                    <h1 class="display-5">
-                        {{ album.title }}
-                    </h1>
-                    <h4>
-                        {{ album.author }}
-                    </h4>
-                    <h5 class="mt-3">
-                        Price: {{ album.price }} {{ album.currency }}
-                    </h5>
-                </div>
+    @if(!isDialog){
+    <div class="col-md-6 p-5 m-5 border rounded shadow" (click)="openDialog()">
+        <div class="d-flex justify-content-left">
+            <div class="d-flex align-items-center">
+                <img src="{{ album.imgSource }}" [alt]="album.title" class="border rounded p-3 m-3 shadow align-items-center" width="170px" height="170px">
             </div>
-        </a>
+            <div class="d-inline-block text-start m-5">
+                <h1 class="display-5">
+                    {{ album.title }}
+                </h1>
+                <h4>
+                    {{ album.author }}
+                </h4>
+            </div>
+        </div>
     </div>
-</div>
+    }@else {
+    <div class="col-md-6 p-5 m-5 border rounded shadow" (click)="openDialog()">
+        <div class="d-flex justify-content-left">
+            <div class="d-flex align-items-center">
+                <img src="{{ album.imgSource }}" [alt]="album.title" class="border rounded p-3 m-3 shadow align-items-center" width="170px" height="170px">
+            </div>
+            <div class="d-inline-block text-start m-5">
+                <h1 class="display-5">
+                    {{ album.title }}
+                </h1>
+                <h4>
+                    {{ album.author }}
+                </h4>
+            </div>
+        </div>
+    </div>}
 
 
 
