@@ -1,9 +1,7 @@
-import { Component, Input, Inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-
-import { DialogModule, DialogRef } from '@angular/cdk/dialog';
 
 import { Album } from '../album';
 import { AlbumDetailsComponent } from '../album-details/album-details.component';
@@ -11,7 +9,7 @@ import { AlbumDetailsComponent } from '../album-details/album-details.component'
 @Component({
   selector: 'app-album',
   standalone: true,
-  imports: [MatButtonModule, DialogModule],
+  imports: [MatButtonModule],
   templateUrl: './album.component.html',
   styleUrl: './album.component.css'
 })
