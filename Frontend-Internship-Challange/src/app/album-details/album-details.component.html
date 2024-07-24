@@ -7,9 +7,7 @@
     <li>Release Date:{{ data.releaseDate }}</li>
   </ul>
   <div class="d-flex justify-content-end pointer">
-      <mat-icon class="p-3 m-3" (click)="dialogRef.close()" fontIcon="exit_to_app"></mat-icon>
-    <a href="{{ data.source }}" target="_blank" class="text-decoration-none">
-      <mat-icon fontIcon="shop" class="p-3 m-3"></mat-icon>
-    </a>
+    <mat-icon class="px-3 mx-3" (click)="dialogRef.close()" fontIcon="exit_to_app"></mat-icon>
+    <mat-icon fontIcon="shop" class="p-3 m-3" (click)="goToPage(data.source)"></mat-icon>
   </div>
 </mat-dialog-content>

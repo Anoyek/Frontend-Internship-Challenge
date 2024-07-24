@@ -17,10 +17,8 @@ import { AlbumDetailsComponent } from '../album-details/album-details.component'
 })
 export class AlbumComponent {
   @Input() album: any;
-  isDialog: boolean = false;
   constructor(
     public dialog: MatDialog,
-    // public dialogRef: DialogRef
   ) {}
 
   openDialog() {

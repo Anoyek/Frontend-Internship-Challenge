@@ -20,4 +20,7 @@ export class AlbumDetailsComponent {
     public data: Album,
     public dialogRef: DialogRef
   ) {}
+  goToPage(url: string){
+    window.open(url, '_blank')
+  }
 }

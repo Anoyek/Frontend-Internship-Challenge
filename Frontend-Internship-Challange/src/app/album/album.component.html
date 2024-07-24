@@ -1,5 +1,4 @@
 <div class="d-flex row justify-content-evenly text-center g-0">
-    @if(!isDialog){
     <div class="col-md-6 p-5 m-5 border rounded shadow" (click)="openDialog()">
         <div class="d-flex justify-content-left">
             <div class="d-flex align-items-center">
@@ -15,34 +14,4 @@
             </div>
         </div>
     </div>
-    }@else {
-    <div class="col-md-6 p-5 m-5 border rounded shadow" (click)="openDialog()">
-        <div class="d-flex justify-content-left">
-            <div class="d-flex align-items-center">
-                <img src="{{ album.imgSource }}" [alt]="album.title" class="border rounded p-3 m-3 shadow align-items-center" width="170px" height="170px">
-            </div>
-            <div class="d-inline-block text-start m-5">
-                <h1 class="display-5">
-                    {{ album.title }}
-                </h1>
-                <h4>
-                    {{ album.author }}
-                </h4>
-            </div>
-        </div>
-    </div>}
-
-
-
-<!-- after fetching data from api i need to have feed.entry (array of albums) -->
-<!-- there is 
-    im:name.label // title
-    id.label // link to music
-    im:releaseDate.attributes.label 
-    im:price.attributes.amount
-    im:price.attributes.currency
-    im:image[3]
-    im:artist.label
-    id.attributes.im:id
-    category.attributes.term // category of music
--->
+</div>
