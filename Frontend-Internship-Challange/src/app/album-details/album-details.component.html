@@ -6,7 +6,7 @@
     <li>Price: {{ data.price }} {{ data.currency }}</li>
     <li>Release Date:{{ data.releaseDate }}</li>
   </ul>
-  <div class="d-flex justify-content-end pointer">
+  <div class="d-flex justify-content-end">
     <button mat-icon-button (click)="dialogRef.close()"><mat-icon fontIcon="exit_to_app"></mat-icon></button>
     <button mat-icon-button (click)="goToPage(data.source)"><mat-icon fontIcon="shop"></mat-icon></button>
   </div>

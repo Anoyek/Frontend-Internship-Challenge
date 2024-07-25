@@ -1,4 +1,5 @@
-import { Component, inject, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { AlbumComponent } from './album/album.component';
@@ -12,7 +13,7 @@ import { AlbumsService } from './albums.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, AlbumComponent, AlbumListComponent, SearchbarComponent],
+  imports: [NavbarComponent, AlbumComponent, AlbumListComponent, SearchbarComponent, MatGridListModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

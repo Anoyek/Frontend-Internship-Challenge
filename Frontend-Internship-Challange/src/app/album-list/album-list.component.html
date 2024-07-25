@@ -1,10 +1,12 @@
-@for
-(album of albumsList; track album.source) {
-    <app-album 
-    [album]="album"
-    />
-}
-@empty
-{
-  Something went wrong!
-}
+<div class="d-flex flex-wrap">
+  @for
+  (album of albumsList; track album.source) {
+      <app-album 
+      [album]="album"
+      />
+  }
+  @empty
+  {
+    Something went wrong!
+  }
+</div>
