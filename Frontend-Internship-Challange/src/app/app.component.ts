@@ -7,7 +7,7 @@ import { AlbumListComponent } from './album-list/album-list.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 
 import { Album } from './album';
-import { AlbumsService } from './albums.service';
+import { AlbumsService } from './services/albums/albums.service';
 
 
 @Component({
