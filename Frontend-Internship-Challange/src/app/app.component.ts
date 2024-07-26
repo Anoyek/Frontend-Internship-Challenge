@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { RouterOutlet } from '@angular/router';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { AlbumComponent } from './album/album.component';
@@ -8,12 +9,12 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 
 import { Album } from './album';
 import { AlbumsService } from './services/albums/albums.service';
-
+import { FavComponent } from "./fav/fav.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavbarComponent, AlbumComponent, AlbumListComponent, SearchbarComponent, MatGridListModule],
+  imports: [NavbarComponent, AlbumComponent, AlbumListComponent, SearchbarComponent, MatGridListModule, RouterOutlet, FavComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
