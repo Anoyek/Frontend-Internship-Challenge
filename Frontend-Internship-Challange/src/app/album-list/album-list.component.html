@@ -1,3 +1,5 @@
+<app-searchbar (searchbarValueEvent)="handleFiltering($event)"></app-searchbar>
+
 <div class="d-flex flex-wrap">
   @for
   (album of albumsList; track album.source) {
@@ -7,6 +9,6 @@
   }
   @empty
   {
-    Something went wrong!
+    There's nothing to display
   }
 </div>

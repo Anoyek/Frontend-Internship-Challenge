@@ -5,7 +5,7 @@ export interface Album {
     imgSource: string,
     price: string,
     currency: string,
-    id: string,
+    albumId: string,
     category: string,
     releaseDate: string
 }

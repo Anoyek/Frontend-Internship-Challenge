@@ -27,6 +27,7 @@ export class AlbumComponent {
         source: this.album.source,
         imgSource: this.album.imgSource,
         price: this.album.price,
+        albumId: this.album.albumId,
         currency: this.album.currency,
         category: this.album.category,
         releaseDate: this.album.releaseDate

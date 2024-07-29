@@ -7,6 +7,11 @@
     <li>Release Date:{{ data.releaseDate }}</li>
   </ul>
   <div class="d-flex justify-content-end">
+    @if(isFavorite){
+      <button mat-icon-button (click)="removeFromFavorite()"><mat-icon fontIcon="favorite"></mat-icon></button>
+  }@else {
+    <button mat-icon-button (click)="addToFavorite()"><mat-icon fontIcon="favorite_border"></mat-icon></button>
+  }
     <button mat-icon-button (click)="goToPage(data.source)"><mat-icon fontIcon="shop"></mat-icon></button>
     <button mat-icon-button (click)="dialogRef.close()"><mat-icon fontIcon="exit_to_app"></mat-icon></button>
   </div>
