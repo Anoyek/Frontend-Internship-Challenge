@@ -18,6 +18,6 @@ export class FavComponent {
   jsonText: string = '';
   constructor(private LocalStorage: LocalStorageService){
     this.jsonText = localStorage.getItem('fav')!;
-    this.favAlbumList = JSON.parse(this.jsonText);
+    this.favAlbumList = JSON.parse(JSON.parse(this.jsonText));
   }
 }

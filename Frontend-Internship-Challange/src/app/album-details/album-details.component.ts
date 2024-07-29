@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Album } from '../album';
 
 import { LocalStorageService } from '../services/LocalStorage/local-storage.service';
+import { json } from 'stream/consumers';
 
 @Component({
   selector: 'app-album-details',
@@ -48,17 +49,20 @@ export class AlbumDetailsComponent {
   removeFromFavorite(){
     this.isFavorite = false;
     this.favList = this.parse(this.localStorage.getData('fav'));
+    for (let i = 0; i < this.favList.length; i++) {
+      if(this.data.albumId == this.favList[i].albumId){
+        this.favList.splice(i,1);
+        this.favData = JSON.stringify(this.favList);
+        this.localStorage.saveData('fav',this.favData)
+      }
+    }
+    // emit event that in localstorage content changed and i need to refresh the value
   }
 
   CheckIfFavorite(){
-    let selectedAlbum = this.data.albumId;
-    console.log(selectedAlbum)
-    let list = this.parse(this.localStorage.getData('fav')) || [];
-    console.log(list)
-    for (let i = 0; i < list.length; i++) {
-      console.log(list[i].albumId);
-      console.log(selectedAlbum)
-      if(selectedAlbum == list[i].albumId){
+    this.favList = this.parse(this.localStorage.getData('fav')) || [];
+    for (let i = 0; i < this.favList.length; i++) {
+      if(this.data.albumId == this.favList[i].albumId){
         return true;
       }
     }

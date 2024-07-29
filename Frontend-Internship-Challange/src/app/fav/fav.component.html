@@ -1,1 +1,9 @@
-<app-album-list [albumsList]="favAlbumList"></app-album-list>
+<!-- <app-album-list [albumsList]="favAlbumList"></app-album-list> -->
+<div class="d-flex flex-wrap">
+ @for (favAlbum of favAlbumList; track favAlbumList) {
+    <app-album [album]="favAlbum" />
+ }
+ @empty {
+  You haven't liked any albums! Try doing it at Home page!
+ }
+</div>
